@@ -11,13 +11,17 @@ import {
 import Signin from './Signin';
 import Signup from './signup';
 import Welcomescreen from './Welcomescreen';
+import TopicScreen from './TopicScreen';
+import HomeScreen from './HomeScreen';
 
 function App() {
   return (
     <>
       {/* <Signin /> */}
       {/* <Signup /> */}
-      <Welcomescreen />
+      {/* <Welcomescreen /> */}
+      {/* <TopicScreen /> */}
+      <HomeScreen />
     </>
   );
 }
