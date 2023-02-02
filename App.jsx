@@ -17,8 +17,16 @@ import Footer from './Footer';
 import SchedulerScreen from './SchedulerScreen';
 import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
+import AnnouncementScreen from './AnnouncementScreen';
+import GeneralsettingsScreen from './GeneralsettingsScreen';
+import AppbrandScreen from './AppbrandScreen';
 const Stack = createNativeStackNavigator();
 function App() {
+  // return (
+  //   <>
+  //     <AppbrandScreen />
+  //   </>
+  // );
   return (
     <>
       <NavigationContainer>
@@ -31,9 +39,17 @@ function App() {
           {/* <Welcomescreen /> */}
           {/* <TopicScreen /> */}
           {/* <HomeScreen /> */}
+          <Stack.Screen name="Appbrandscreen" component={AppbrandScreen} />
           <Stack.Screen name="login" component={Signin} />
           <Stack.Screen name="home" component={HomeScreen} />
           <Stack.Screen name="signup" component={Signup} />
+          <Stack.Screen name="schedules" component={SchedulerScreen} />
+          <Stack.Screen name="announcement" component={AnnouncementScreen} />
+          <Stack.Screen name="settings" component={GeneralsettingsScreen} />
+          {/* <Stack.Screen
+            name="announcement"
+            component={(AnnouncementScreen = {})}
+          /> */}
           {/* <SchedulerScreen /> */}
           {/* <Footer /> */}
         </Stack.Navigator>

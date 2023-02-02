@@ -1,28 +1,38 @@
 import React from 'react';
-import {Image, StyleSheet, Text, View} from 'react-native';
+import {Image, StyleSheet, Text, View, TouchableOpacity} from 'react-native';
 
-function Footer(props) {
+function Footer({navigation, router}) {
   return (
-    <View style={style.footerdivmain}>
-      <View style={style.icondiv}>
-        <Image style={style.icondiv} source={require('./home.png')} />
+    <View style={footerstyle.footerdivmain}>
+      <TouchableOpacity onPress={() => navigation.navigate('home')}>
+        <View style={footerstyle.icondiv}>
+          <Image style={footerstyle.icondiv} source={require('./home.png')} />
+        </View>
+      </TouchableOpacity>
+      <TouchableOpacity onPress={() => navigation.navigate('announcement')}>
+        <View style={footerstyle.icondiv}>
+          <Image
+            style={footerstyle.icondiv}
+            source={require('./schedules.png')}
+          />
+        </View>
+      </TouchableOpacity>
+      <View style={footerstyle.icondiv}>
+        <Image
+          style={footerstyle.icondiv}
+          source={require('./announcement.png')}
+        />
       </View>
-      <View style={style.icondiv}>
-        <Image style={style.icondiv} source={require('./schedules.png')} />
+      <View style={footerstyle.icondiv}>
+        <Image style={footerstyle.icondiv} source={require('./bookmark.png')} />
       </View>
-      <View style={style.icondiv}>
-        <Image style={style.icondiv} source={require('./announcement.png')} />
-      </View>
-      <View style={style.icondiv}>
-        <Image style={style.icondiv} source={require('./bookmark.png')} />
-      </View>
-      <View style={style.icondiv}>
-        <Image style={style.icondiv} source={require('./setting.png')} />
+      <View style={footerstyle.icondiv}>
+        <Image style={footerstyle.icondiv} source={require('./setting.png')} />
       </View>
     </View>
   );
 }
-const style = StyleSheet.create({
+const footerstyle = StyleSheet.create({
   footerdivmain: {
     justifyContent: 'center',
     position: 'absolute',

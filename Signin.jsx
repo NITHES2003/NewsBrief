@@ -16,25 +16,31 @@ function Signin({navigation}) {
         <View style={style.secondmaindiv}>
           <Text
             style={{
-              fontSize: 35,
+              fontSize: 50,
               fontWeight: 'bold',
               color: 'black',
-              marginBottom: 20,
+              marginBottom: '20%',
             }}>
             Sign in
           </Text>
           <View style={style.signdiv}>
             <TextInput
               style={style.signinput}
-              placeholder="Phone or email"
+              placeholder="   Phone or email"
               keyboardType="default"
             />
             <TextInput
               style={style.signinput}
-              placeholder="Password"
+              placeholder="   Password"
               keyboardType="default"
             />
-            <Button title="Sign in" color="black" />
+            <View style={{width: 300, alignSelf: 'center'}}>
+              <Button
+                onPress={() => navigation.navigate('home')}
+                title="Sign in"
+                color="black"
+              />
+            </View>
             <View style={style.ordiv}>
               <Text style={{fontSize: 16, color: 'black', marginTop: 5}}>
                 Don't have an account?{' '}
@@ -48,7 +54,9 @@ function Signin({navigation}) {
             </View>
 
             <View style={style.ordiv}>
-              <Text>Or</Text>
+              <Text style={{fontSize: 20, fontWeight: 'bold', color: 'black'}}>
+                Or
+              </Text>
             </View>
             <View style={style.difflogin}>
               <TouchableOpacity style={style.loginbutton}>
@@ -83,7 +91,7 @@ function Signin({navigation}) {
             </View>
           </View>
         </View>
-        <TouchableOpacity onPress={() => navigation.navigate('home')}>
+        {/* <TouchableOpacity onPress={() => navigation.navigate('home')}>
           <View style={style.skipdiv}>
             <View style={style.skipdivcontent}>
               <Text style={style.skipdivtxt}>
@@ -95,32 +103,12 @@ function Signin({navigation}) {
               </Text>
             </View>
           </View>
-        </TouchableOpacity>
+        </TouchableOpacity> */}
       </View>
     </>
   );
 }
 const style = StyleSheet.create({
-  skipdiv: {
-    justifyContent: 'flex-end',
-    alignItems: 'flex-end',
-  },
-  skipdivcontent: {
-    // backgroundColor: 'blue',
-    zIndex: 1,
-    position: 'absolute',
-    bottom: 450,
-    left: 150,
-    marginTop: 5,
-    paddingLeft: 2,
-    paddingRight: 2,
-    borderWidth: 1,
-    borderRadius: 2,
-    borderColor: 'grey',
-  },
-  skipdivtxt: {
-    color: 'black',
-  },
   maindiv: {
     alignItems: 'center',
     justifyContent: 'center',
@@ -128,18 +116,22 @@ const style = StyleSheet.create({
   },
   secondmaindiv: {
     alignItems: 'center',
+    marginTop: 0,
   },
   signdiv: {
     width: 250,
   },
   signinput: {
     height: 40,
+    width: 300,
     borderWidth: 1,
-    padding: 10,
+    alignSelf: 'center',
     marginBottom: 10,
   },
   ordiv: {
     alignItems: 'center',
+    marginTop: 15,
+    marginBottom: 15,
   },
   difflogin: {
     alignItems: 'center',
@@ -180,8 +172,9 @@ const style = StyleSheet.create({
   loginbutton: {
     flex: 1,
     flexDirection: 'row',
+    width: 300,
     justifyContent: 'center',
-    alignSelf: 'stretch',
+    alignSelf: 'center',
     borderRadius: 5,
     padding: 5,
     marginTop: 5,
