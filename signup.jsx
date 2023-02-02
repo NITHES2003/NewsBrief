@@ -9,7 +9,7 @@ import {
   View,
 } from 'react-native';
 
-function Signup(props) {
+function Signup({navigation, route}) {
   return (
     <>
       <View style={style.maindiv}>

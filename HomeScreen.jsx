@@ -7,10 +7,21 @@ import {
   TextInput,
   View,
 } from 'react-native';
+import LinearGradient from 'react-native-linear-gradient';
+import Footer from './Footer';
 const wstyle = StyleSheet.create({
   scrolldiv: {
     flexDirection: 'row',
     padding: 10,
+  },
+  lineargradient: {
+    flex: 1,
+    paddingLeft: 15,
+    paddingRight: 15,
+    borderRadius: 5,
+    width: 300,
+    height: 150,
+    marginRight: 10,
   },
 });
 function Weatherdiv(props) {
@@ -18,11 +29,27 @@ function Weatherdiv(props) {
     <>
       <View>
         <ScrollView horizontal={true} style={wstyle.scrolldiv}>
+          <LinearGradient
+            start={{x: 0, y: -1}}
+            end={{x: 2, y: 0}}
+            style={wstyle.lineargradient}
+            colors={['#43cea2', '#185a9d']}></LinearGradient>
+
           <View
             style={{
-              width: 100,
+              width: 300,
+              height: 150,
+              backgroundColor: 'gold',
+              borderRadius: 5,
+              marginRight: 10,
+            }}></View>
+          <View
+            style={{
+              width: 300,
               height: 100,
               marginRight: 10,
+              borderRadius: 5,
+              backgroundColor: 'pink',
             }}></View>
         </ScrollView>
       </View>
@@ -41,7 +68,7 @@ function Trendingdiv(props) {
       id: 2,
       image:
         'https://images.unsplash.com/photo-1524613032530-449a5d94c285?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NHx8cmVwdWJsaWMlMjBpbmRpYXxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60',
-      text: '#Republicday2023',
+      text: '#india2023',
     },
     {
       id: 3,
@@ -101,8 +128,96 @@ function Trendingdiv(props) {
     </>
   );
 }
-
-function HomeScreen(props) {
+function TopicsDiv(props) {
+  return (
+    <>
+      <View
+        style={{
+          justifyContent: 'flex-start',
+          alignContent: 'flex-start',
+          marginBottom: 0,
+          marginLeft: 3,
+        }}>
+        <Text style={{color: 'black', fontWeight: 'bold', fontSize: 16}}>
+          Topics
+        </Text>
+      </View>
+      <View>
+        <ScrollView style={style.topicdiv} horizontal={true}>
+          <View
+            style={{
+              height: 120,
+              width: 120,
+              marginRight: 10,
+              alignItems: 'center',
+              // borderWidth: 1,
+              // borderColor: 'red',
+            }}>
+            <View style={{width: 100, height: 100, overflow: 'hidden'}}>
+              <Image
+                style={{height: '100%', width: '100%'}}
+                resizeMode="contain"
+                source={{
+                  uri: 'https://upload.wikimedia.org/wikipedia/en/thumb/e/e3/2022_FIFA_World_Cup.svg/209px-2022_FIFA_World_Cup.svg.png',
+                }}
+              />
+            </View>
+            <Text
+              style={{
+                alignContent: 'center',
+                alignItems: 'center',
+                alignSelf: 'center',
+                fontSize: 12,
+                color: 'dodgerblue',
+                fontWeight: 'bold',
+              }}>
+              FIFA World Cup 2022
+            </Text>
+            <View
+              style={{
+                alignSelf: 'center',
+                marginTop: 2,
+                width: 10,
+                height: 4,
+                backgroundColor: 'dodgerblue',
+              }}></View>
+          </View>
+          <View
+            style={{
+              height: 130,
+              width: 120,
+              marginRight: 10,
+              alignItems: 'center',
+              // borderWidth: 1,
+              // borderColor: 'red',
+            }}>
+            <View style={{width: 100, height: 100, overflow: 'hidden'}}>
+              <Image
+                style={{height: '100%', width: '100%'}}
+                resizeMode="contain"
+                source={{
+                  uri: 'https://static.wikia.nocookie.net/logopedia/images/7/76/ICCMT20WC2022_2021.svg/revision/latest/scale-to-width-down/200?cb=20221004025902',
+                }}
+              />
+            </View>
+            <Text
+              style={{
+                alignContent: 'center',
+                alignItems: 'center',
+                alignSelf: 'center',
+                fontSize: 12,
+                color: 'grey',
+                fontWeight: 'bold',
+              }}>
+              ICC T20 World Cup
+            </Text>
+          </View>
+        </ScrollView>
+      </View>
+    </>
+  );
+}
+function HomeScreen({navigation, route}) {
   return (
     <>
       <View style={style.homescreennav}>
@@ -134,6 +249,8 @@ function HomeScreen(props) {
       </View>
       <Trendingdiv />
       <Weatherdiv />
+      <TopicsDiv />
+      <Footer />
     </>
   );
 }
@@ -194,6 +311,10 @@ const style = StyleSheet.create({
   },
   trending_text: {
     fontSize: 16,
+  },
+  topicdiv: {
+    flexDirection: 'row',
+    padding: 10,
   },
 });
 

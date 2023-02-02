@@ -9,7 +9,7 @@ import {
   View,
 } from 'react-native';
 
-function Signin(props) {
+function Signin({navigation}) {
   return (
     <>
       <View style={style.maindiv}>
@@ -38,7 +38,9 @@ function Signin(props) {
             <View style={style.ordiv}>
               <Text style={{fontSize: 16, color: 'black', marginTop: 5}}>
                 Don't have an account?{' '}
-                <Text style={{fontSize: 16, color: 'blue', fontWeight: 'bold'}}>
+                <Text
+                  onPress={() => navigation.navigate('signup')}
+                  style={{fontSize: 16, color: 'blue', fontWeight: 'bold'}}>
                   {' '}
                   Click here
                 </Text>
@@ -81,17 +83,19 @@ function Signin(props) {
             </View>
           </View>
         </View>
-        <View style={style.skipdiv}>
-          <View style={style.skipdivcontent}>
-            <Text style={style.skipdivtxt}>
-              Skip{' '}
-              <Image
-                source={require('./skip.png')}
-                style={{height: 10, width: 10}}
-              />{' '}
-            </Text>
+        <TouchableOpacity onPress={() => navigation.navigate('home')}>
+          <View style={style.skipdiv}>
+            <View style={style.skipdivcontent}>
+              <Text style={style.skipdivtxt}>
+                Skip{' '}
+                <Image
+                  source={require('./skip.png')}
+                  style={{height: 10, width: 10}}
+                />{' '}
+              </Text>
+            </View>
           </View>
-        </View>
+        </TouchableOpacity>
       </View>
     </>
   );
